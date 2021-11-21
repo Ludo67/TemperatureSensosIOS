@@ -2,20 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Temperature.MainPage">
-    <StackLayout>
-        <ListView x:Name="ListTemp">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding temperature}"></Label>
-                            <Label Text="{Binding humidity}"></Label>
-                            <Label Text="{Binding timestamp}"></Label>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
 
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <CollectionView x:Name="collectionView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Grid Padding="10" RowDefinitions="auto, *" ColumnDefinitions="auto, *">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Temperature :" TextColor="Red" FontSize="Medium"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Humidity :" TextColor="DarkBlue" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Time :" TextColor="ForestGreen" FontSize="Medium"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding temperature}" TextColor="Black" Margin="25, 0, 0, 0" FontSize="Medium"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding humidity}" TextColor="Black" Margin="50, 0, 0, 0" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding timestamp}" TextColor="Black" Margin="95, 0, 0, 0" FontSize="Medium"/>
+                                </Grid>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
+
+

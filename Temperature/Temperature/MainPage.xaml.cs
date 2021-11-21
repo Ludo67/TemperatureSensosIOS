@@ -30,7 +30,7 @@ namespace Temperature
                      "malfunctioning or is offline." + "Try another time","OK");
             }
             var temp = JsonConvert.DeserializeObject<List<Temp>>(response);
-            ListTemp.ItemsSource = temp;
+            collectionView.ItemsSource = temp;
 
         }
     }
