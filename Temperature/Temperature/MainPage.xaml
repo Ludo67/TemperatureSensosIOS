@@ -4,8 +4,6 @@
              x:Class="Temperature.MainPage">
 
     <ContentPage.Content>
-        <RefreshView IsRefreshing="{Binding IsRefreshing}"
-             Command="{Binding RefreshCommand}">
         <ScrollView>
             <StackLayout>
                 <CollectionView x:Name="collectionView">
@@ -26,7 +24,6 @@
                 </CollectionView>
             </StackLayout>
         </ScrollView>
-        </RefreshView>
     </ContentPage.Content>
 </ContentPage>
 
