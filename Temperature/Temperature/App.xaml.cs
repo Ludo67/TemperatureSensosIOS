@@ -24,5 +24,7 @@ namespace Temperature
         protected override void OnResume()
         {
         }
+
+        
     }
 }

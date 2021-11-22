@@ -4,6 +4,8 @@
              x:Class="Temperature.MainPage">
 
     <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsRefreshing}"
+             Command="{Binding RefreshCommand}">
         <ScrollView>
             <StackLayout>
                 <CollectionView x:Name="collectionView">
@@ -11,12 +13,12 @@
                         <DataTemplate>
                             <StackLayout>
                                 <Grid Padding="10" RowDefinitions="auto, *" ColumnDefinitions="auto, *">
-                                    <Label Grid.Row="0" Grid.Column="0" Text="Temperature :" TextColor="Red" FontSize="Medium"/>
-                                    <Label Grid.Row="1" Grid.Column="0" Text="Humidity :" TextColor="DarkBlue" FontSize="Medium"/>
-                                    <Label Grid.Row="2" Grid.Column="0" Text="Time :" TextColor="ForestGreen" FontSize="Medium"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding temperature}" TextColor="Black" Margin="25, 0, 0, 0" FontSize="Medium"/>
-                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding humidity}" TextColor="Black" Margin="50, 0, 0, 0" FontSize="Medium"/>
-                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding timestamp}" TextColor="Black" Margin="95, 0, 0, 0" FontSize="Medium"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Temperature(°C):" TextColor="Red" FontSize="Medium"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="Humidity (%):" TextColor="Blue" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Time :" TextColor="Green" FontSize="Medium"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Temperature}" TextColor="Black" Margin="25, 0, 0, 0" FontSize="Medium"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Humidity}" TextColor="Black" Margin="25, 0, 0, 0" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Timestamp1}" TextColor="Black" Margin="25, 0, 0, 0" FontSize="Medium"/>
                                 </Grid>
                             </StackLayout>
                         </DataTemplate>
@@ -24,6 +26,7 @@
                 </CollectionView>
             </StackLayout>
         </ScrollView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>
 

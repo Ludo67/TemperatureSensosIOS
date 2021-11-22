@@ -6,10 +6,10 @@ namespace Temperature
 {
     class Temp
     {
-        public string temperature { get; set; }
+        public string Temperature { get; set; }
 
-        public string humidity { get; set; }
+        public string Humidity { get; set; }
 
-        public string timestamp { get; set; }
+        public string Timestamp1 { get; set; }
     }
 }

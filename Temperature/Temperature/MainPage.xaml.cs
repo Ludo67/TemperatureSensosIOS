@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Net.Http;
 using Newtonsoft.Json;
-
-
+using System.Windows.Input;
 
 namespace Temperature
 {
@@ -22,16 +21,17 @@ namespace Temperature
 
         public async void Temp()
         {
-            var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync("https://webapprouting.herokuapp.com/");
-            if (response == null || response == "")
-            {
-                await DisplayAlert("Error","Data could not be retrieved.The sensor is either " +
-                     "malfunctioning or is offline." + "Try another time","OK");
-            }
-            var temp = JsonConvert.DeserializeObject<List<Temp>>(response);
-            collectionView.ItemsSource = temp;
 
+            var httpClient = new HttpClient();
+                var response = await httpClient.GetStringAsync("https://webapprouting.herokuapp.com/");
+                if (response == null || response == "")
+                {
+                    await DisplayAlert("Error", "Data could not be retrieved.The sensor is either " +
+                         "malfunctioning or is offline." + "Try another time", "OK");
+                }
+                var temp = JsonConvert.DeserializeObject<List<Temp>>(response);
+                collectionView.ItemsSource = temp;
+            
         }
     }
 }
