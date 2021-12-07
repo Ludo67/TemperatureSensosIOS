@@ -7,7 +7,8 @@
         <RefreshView BackgroundColor="DimGray">
             <ScrollView BackgroundColor="DimGray">
                 <StackLayout BackgroundColor="DimGray">
-                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Clicked="Button_Clicked" Text="Get Temperatures" BackgroundColor="#4682b4" BorderColor="White" TextColor="White"></Button>
+                    <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Clicked="Button_Clicked" Text="Get Temperatures" BackgroundColor="#4682b4"
+                            BorderColor="White" TextColor="White" Margin="20,10,20,10" FontSize="20"></Button>
                     <CollectionView x:Name="collectionView">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
