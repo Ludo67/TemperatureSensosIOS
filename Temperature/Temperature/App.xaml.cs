@@ -10,7 +10,7 @@ namespace Temperature
         {
             InitializeComponent();
 
-            MainPage = new LoginPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
