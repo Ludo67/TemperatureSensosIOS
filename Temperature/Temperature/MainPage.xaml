@@ -4,26 +4,30 @@
              x:Class="Temperature.MainPage">
 
     <ContentPage.Content>
+        <RefreshView>
         <ScrollView>
             <StackLayout>
                 <CollectionView x:Name="collectionView">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
+                                <Frame Padding="1" BorderColor="LightGray" HasShadow="False" Grid.Row="4" BackgroundColor="DimGray">
                             <StackLayout>
                                 <Grid Padding="10" RowDefinitions="auto, *" ColumnDefinitions="auto, *">
                                     <Label Grid.Row="0" Grid.Column="0" Text="Temperature(°C):" TextColor="Red" FontSize="Medium"/>
                                     <Label Grid.Row="1" Grid.Column="0" Text="Humidity (%):" TextColor="Blue" FontSize="Medium"/>
-                                    <Label Grid.Row="2" Grid.Column="0" Text="Time :" TextColor="Green" FontSize="Medium"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Temperature}" TextColor="Black" Margin="25, 0, 0, 0" FontSize="Medium"/>
-                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Humidity}" TextColor="Black" Margin="25, 0, 0, 0" FontSize="Medium"/>
-                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Timestamp1}" TextColor="Black" Margin="25, 0, 0, 0" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Text="Time :" TextColor="LawnGreen" FontSize="Medium"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Temperature}" TextColor="white" Margin="25, 0, 0, 0" FontSize="Medium"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Humidity}" TextColor="white" Margin="25, 0, 0, 0" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding Timestamp1}" TextColor="white" Margin="25, 0, 0, 0" FontSize="Medium"/>
                                 </Grid>
                             </StackLayout>
+                                </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </StackLayout>
         </ScrollView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>
 
