@@ -33,5 +33,11 @@ namespace Temperature
                 collectionView.ItemsSource = temp;
             
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Temp();
+        }
+
     }
 }
