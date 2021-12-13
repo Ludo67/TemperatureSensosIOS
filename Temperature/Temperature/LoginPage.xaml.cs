@@ -17,9 +17,21 @@ namespace Temperature
             InitializeComponent();
         }
 
-        private void Login_Clicked(object sender, EventArgs e)
+        private async void Login_Clicked(object sender, EventArgs e)
         {
+            string adminUsername = "MyAdmin";
+            string adminPassword = "MyStrongPassword!";
 
+            if (username.Text == adminUsername && password.Text == adminPassword)
+            {
+                await Navigation.PushAsync(new MainPage());
+
+            }
+
+            else
+            {
+                await DisplayAlert("Cannot Log In", "Incorrect username or password.", "OK");
+            }
         }
     }
 }
