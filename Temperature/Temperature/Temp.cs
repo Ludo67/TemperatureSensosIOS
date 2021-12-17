@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Java.Security;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,5 +12,7 @@ namespace Temperature
         public string Humidity { get; set; }
 
         public string Timestamp1 { get; set; }
+
+        
     }
 }
