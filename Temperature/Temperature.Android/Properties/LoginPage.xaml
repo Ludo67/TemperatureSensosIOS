@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Temperature.LoginPage">
+    <Frame Padding="1" BorderColor="LightGray" HasShadow="False" Grid.Row="4" BackgroundColor="DimGray">
+    <StackLayout>
+        <Grid Padding="10" RowDefinitions="auto, *" ColumnDefinitions="auto, *">
+
+                <Frame Padding="1" BorderColor="DimGray" HasShadow="False" BackgroundColor="DimGray" Grid.Column="1" Grid.Row="3">
+                    <Label Text="Login" TextColor="White" FontSize="50" HorizontalTextAlignment="Center"></Label>
+                </Frame>
+
+                <Frame Padding="1" BorderColor="LightGray" HasShadow="False" BackgroundColor="LightGray" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
+            <Entry x:Name="username" Placeholder="Enter username"  Margin="10"/>
+            </Frame>
+
+                <Frame Padding="1" BorderColor="LightGray" HasShadow="False" BackgroundColor="LightGray" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2">
+            <Entry x:Name="password" Placeholder="Enter password" IsPassword="True" Margin="10"/>
+            </Frame>
+
+                <Frame Padding="1" BorderColor="DimGray" HasShadow="False" BackgroundColor="#4682b4" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2">
+            <Button x:Name="Login" Text="Login" BackgroundColor="#4682b4" TextColor="White"  Margin="15, 0, 15, 0" Clicked ="Login_Clicked"/>
+            </Frame>
+                        
+        </Grid>
+    </StackLayout>
+    </Frame>
+</ContentPage>

@@ -25,7 +25,10 @@
                           MinimumDate="11/15/21" MaximumDate="12/31/21" TextColor="Black" BackgroundColor="White"/>
                 </Frame>
 
-                <Button x:Name="ChartsBtn"  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Clicked="ChartsBtn_Clicked" Text="Chart" BackgroundColor="#4682b4"
+                <Button x:Name="Temperature"  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3" Clicked="Temperature_Clicked" Text="Average Temperature" BackgroundColor="#4682b4"
+                            BorderColor="White" TextColor="White" Margin="20,10,20,10" FontSize="20"></Button>
+
+                <Button x:Name="Humidity"  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" Clicked="Humidity_Clicked" Text="Average Humidity" BackgroundColor="#4682b4"
                             BorderColor="White" TextColor="White" Margin="20,10,20,10" FontSize="20"></Button>
 
                 <CollectionView x:Name="collectionView">

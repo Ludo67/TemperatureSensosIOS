@@ -10,7 +10,7 @@ namespace Temperature
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new chart());
+            MainPage = new NavigationPage(new MainPage());
            
         }
 

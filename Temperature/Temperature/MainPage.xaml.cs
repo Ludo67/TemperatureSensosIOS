@@ -17,26 +17,12 @@ namespace Temperature
         public MainPage()
         {
             InitializeComponent();
-            Temp();
         }
 
         public async void Temp()
         {
-            //DayOfWeek today = DateTime.Today.DayOfWeek;
-            //DayOfWeek lastweek = today - 14;
-            //String stringWeek = lastweek.ToString("d");
 
-            //String stringToday = today.ToString("d");
-
-            //var myTempObj = new Temp();
-            //var myTime = new Binding("Timestamp1").ToString();
-
-            //var day = DateTime.Parse(myTime.Substring(myTime.Length - 11));
-            //DayOfWeek day1 = day.DayOfWeek;
-
-            //String dayString = day1.ToString("d");
-           
-                var httpClient = new HttpClient();
+            var httpClient = new HttpClient();
                 var response = await httpClient.GetStringAsync("https://webapprouting.herokuapp.com/");
                 if (response == null || response == "")
                 {
@@ -44,14 +30,9 @@ namespace Temperature
                          "malfunctioning or is offline." + "Try another time", "OK");
                 }
 
-
-            //if (lastweek <= day1 && day1 <= today)
-            //{
                 var temp = JsonConvert.DeserializeObject<List<Temp>>(response);
-                collectionView.ItemsSource = temp;
-            //}
-                
-            
+
+                collectionView.ItemsSource = temp;         
         }
 
         private void Button_Clicked(object sender, EventArgs e)
@@ -59,9 +40,65 @@ namespace Temperature
             Temp();
         }
 
-        private async void ChartsBtn_Clicked(object sender, EventArgs e)
+        private async void Humidity_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new chart());
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync("https://webapprouting.herokuapp.com/");
+            if (response == null || response == "")
+            {
+                await DisplayAlert("Error", "Data could not be retrieved.The sensor is either " +
+                     "malfunctioning or is offline." + "Try another time", "OK");
+            }
+
+            var obj = JsonConvert.DeserializeObject<List<Temp>>(response);
+
+            float sumHumi = 0;
+
+            int counter = 0;
+
+            foreach (Temp item in obj)
+            {
+                float humi = float.Parse(item.Humidity);
+
+                sumHumi += humi;
+
+                counter += 1;
+            }
+
+            float avgHumi = sumHumi / counter;
+
+            await DisplayAlert("Humidity", "The average Humidity is: " + avgHumi.ToString() + "\n Number of Readings: " + counter.ToString(), "OK");
+        }
+
+        private async void Temperature_Clicked(object sender, EventArgs e)
+        {
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetStringAsync("https://webapprouting.herokuapp.com/");
+            if (response == null || response == "")
+            {
+                await DisplayAlert("Error", "Data could not be retrieved.The sensor is either " +
+                     "malfunctioning or is offline." + "Try another time", "OK");
+            }
+
+            var obj = JsonConvert.DeserializeObject<List<Temp>>(response);
+
+
+            float sumTemp = 0;
+
+            int counter = 0;
+
+            foreach (Temp item in obj)
+            {
+                float temp = float.Parse(item.Temperature);
+
+                sumTemp += temp;
+
+                counter += 1;
+            }
+
+            float avgTemp = sumTemp / counter;
+
+            await DisplayAlert("Temperature", "The average temperature is: " + avgTemp.ToString() + "\n Number of Readings: "+counter.ToString(), "OK");
         }
     }
 }
